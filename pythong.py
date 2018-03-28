@@ -29,6 +29,7 @@ def encrypt(key, filename):
 				outfile.write(encryptor.encrypt(chunk))
 
 
+
 def decrypt(key, filename):
 	chunksize = 64*1024
 	outputFile = filename[11:]
@@ -48,7 +49,6 @@ def decrypt(key, filename):
 
 				outfile.write(decryptor.decrypt(chunk))
 			outfile.truncate(filesize)
-
 
 def getKey(password):
 	hasher = SHA256.new(password)
@@ -72,4 +72,3 @@ def Main():
 
 if __name__ == '__main__':
 	Main()
-
