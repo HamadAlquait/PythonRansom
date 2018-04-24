@@ -8,7 +8,24 @@ import sys
 
 # Main part of the program that has the background and window sizes
 root = Tk()
-root.geometry("900x600")
+
+
+def __init__(self, master, **kwargs):
+    self.master = master
+    pad = 3
+    self._geom = '200x200+0+0'
+    master.geometry("{0}x{1}+0+0".format(
+        master.winfo_screenwidth() - pad, master.winfo_screenheight() - pad))
+    master.bind('<Escape>', self.toggle_geom)
+
+
+def toggle_geom(self, event):
+    geom = self.master.winfo_geometry()
+    print(geom, self._geom)
+    self.master.geometry(self._geom)
+    self._geom = geom
+
+
 root.title("This is a RansomWare Attack")
 root.configure(background="black")
 root.overrideredirect(True)
@@ -88,5 +105,6 @@ Chooser2 = Checkbutton(root, bg="BLUE", text="AVOID BRICKING SYSTEM").place(x=25
 Chooser3 = Checkbutton(root, bg="BLUE", text="PAY ME").place(x=25, y=540)
 #update_time()
 
+app=FullScreenApp(root)
 
 root.mainloop()
