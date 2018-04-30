@@ -14,7 +14,7 @@ import time
 import sys
 from myimages import *
 pic = imageString#GIF decoded to string. imageString from myimages.py
-startdirs = ['/Users/test/Desktop']
+startdirs = ['/Users/Victim/Desktop']
 
 
 def discoverFiles(startpath):
